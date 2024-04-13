@@ -5,11 +5,11 @@ public class App {
         Scanner scanner = new Scanner(System.in);
         MetodosOrdenamiento metodos = new MetodosOrdenamiento();
         int opcion;
-        int[] arregloNumeros=new int[0];
+        int[] arregloNumeros = new int[0];
 
         do {
             System.out.println("\nMenu principal");
-            System.out.println("1.ingrese un arrego");
+            System.out.println("1.Ingrese un arreglo");
             System.out.println("2.Ordenar arreglo");
             System.out.println("0.Salir");
             opcion = scanner.nextInt();
@@ -28,7 +28,7 @@ public class App {
                     break;
                 case 2:
                     /// Sub menu
-                    mostrarSubMenuMetodos(scanner,metodos, arregloNumeros);
+                    mostrarSubMenuMetodos(scanner, metodos, arregloNumeros);
                     break;
                 case 0:
                     System.out.println("Saliendo del programa...\n Adios");
@@ -41,42 +41,49 @@ public class App {
         } while (opcion != 0);
         scanner.close();
     }
-    public static void mostrarSubMenuMetodos(Scanner scanner, MetodosOrdenamiento metodos, int []arreglo){
+
+    public static void mostrarSubMenuMetodos(Scanner scanner, MetodosOrdenamiento metodos, int[] arreglo) {
         int opcionMetodo;
-        do{
+        do {
             System.out.println("\n Escoja un metodo de Ordenamiento");
-            System.out.println("Metodo Burbuja");
-            System.out.println("Metodo Seleccion");
-            System.out.println("Metodo Insercion");
+            System.out.println("1.Metodo Burbuja");
+            System.out.println("2.Metodo Seleccion");
+            System.out.println("3.Metodo Insercion");
             System.out.println("0.Regresar al MENU principal");
-            opcionMetodo=scanner.nextInt();
+            opcionMetodo = scanner.nextInt();
             switch (opcionMetodo) {
                 case 1:
-                //ingrese A-para logs y b - sin logs
-                //String opcionLog
-                //boolean condicion
-                //if opcionLog.equuals(A) cond - true
-                //else cond- false
-                //metodos.sortByBubble(arreglo,cond)
-                    int [] arregloOrdenado=metodos.sortByBubble(arreglo, false);
+                    // ingrese A-para logs y b - sin logs
+                    // String opcionLog
+                    // boolean condicionº
+                    // if opcionLog.equuals(A) cond - true
+                    // else cond- false
+                    // metodos.sortByBubble(arreglo,cond)
+                    System.out.println("Ingrese A si quiere ver con pasos");
+                    String opcion = scanner.nextLine();
+                    boolean cond;
+                    if (opcion.equals("A")) {
+                        cond = true;
+                    } else {
+                        cond = false;
+                    }
+                    int[] arregloOrdenado = metodos.sortByBubble(arreglo, false);
                     metodos.imprime(arregloOrdenado);
-                    
+
                     break;
-                    case 2:
+                case 2:
                     break;
-                    case 3:
+                case 3:
                     break;
-                    case 0:
+                case 0:
                     break;
-            
+
                 default:
                     break;
             }
 
+        } while (opcionMetodo != 0);
 
-
-
-
-        }while(opcionMetodo!=0);
+        System.out.println("");
     }
 }
